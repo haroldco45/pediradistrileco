@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,9 +29,9 @@
   --shadow-lg: 0 8px 32px rgba(13,43,82,0.18);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--azul); min-height: 100vh; overscroll-behavior-y: contain; }
+body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--azul); min-height: 100vh; }
 
-/* HEADER */
+/* HEADER ORIGINAL */
 .header {
   background: var(--azul);
   padding: 0;
@@ -84,173 +83,35 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
   text-transform: uppercase; letter-spacing: 0.5px;
   border-bottom: 2px solid var(--gris-light); padding-bottom: 10px;
 }
-.card-title .icon { font-size: 18px; }
 
 /* FORMULARIO */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .form-group { display: flex; flex-direction: column; gap: 4px; }
 .form-group.full { grid-column: 1 / -1; }
-.form-group label { font-size: 11px; font-weight: 600; color: var(--gris); text-transform: uppercase; letter-spacing: 0.5px; }
-.form-group input, .form-group textarea {
-  border: 2px solid var(--gris-light); border-radius: 8px; padding: 10px 12px;
-  font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--azul);
-  transition: border-color 0.2s; background: #fafcff;
-}
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--azul-light); }
-.form-group textarea { resize: vertical; min-height: 70px; }
+.form-group label { font-size: 11px; font-weight: 600; color: var(--gris); text-transform: uppercase; }
+.form-group input { border: 2px solid var(--gris-light); border-radius: 8px; padding: 10px 12px; font-size: 14px; background: #fafcff; }
 
-.gps-row { display: flex; gap: 8px; align-items: flex-end; }
-.gps-row input { flex: 1; }
-.btn-gps {
-  background: var(--azul); color: white; border: none; border-radius: 8px;
-  padding: 10px 14px; cursor: pointer; font-size: 18px; white-space: nowrap;
-  transition: background 0.2s;
-}
-.btn-gps:hover { background: var(--azul-light); }
-.gps-status { font-size: 11px; color: var(--gris); margin-top: 3px; font-style: italic; }
-
-/* BÚSQUEDA PRODUCTOS */
+/* BUSCADOR */
 .search-box-wrap { position: relative; margin-bottom: 12px; }
-.search-box-wrap input {
-  width: 100%; padding: 12px 40px 12px 14px; border: 2px solid var(--gris-light);
-  border-radius: 10px; font-size: 14px; font-family: 'Barlow', sans-serif;
-}
-.search-box-wrap input:focus { outline: none; border-color: var(--azul-light); }
-.search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--gris); font-size: 18px; }
-.autocomplete-list {
-  position: absolute; top: 100%; left: 0; right: 0; background: white;
-  border: 2px solid var(--azul-light); border-top: none; border-radius: 0 0 10px 10px;
-  max-height: 220px; overflow-y: auto; z-index: 50; box-shadow: var(--shadow-lg);
-}
-.autocomplete-item {
-  padding: 10px 14px; cursor: pointer; border-bottom: 1px solid var(--gris-light);
-  transition: background 0.15s;
-}
+.search-box-wrap input { width: 100%; padding: 12px 40px 12px 14px; border: 2px solid var(--gris-light); border-radius: 10px; font-size: 14px; }
+.autocomplete-list { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 2px solid var(--azul-light); border-radius: 0 0 10px 10px; max-height: 250px; overflow-y: auto; z-index: 50; box-shadow: var(--shadow-lg); }
+.autocomplete-item { padding: 10px 14px; cursor: pointer; border-bottom: 1px solid var(--gris-light); }
 .autocomplete-item:hover { background: #f0f6ff; }
-.autocomplete-item .prod-code { font-size: 11px; color: var(--gris); font-weight: 600; }
-.autocomplete-item .prod-name { font-size: 14px; font-weight: 600; color: var(--azul); }
-.autocomplete-item .prod-um { font-size: 11px; color: var(--naranja); font-weight: 600; }
 
 /* TABLA PEDIDO */
-.pedido-header {
-  display: grid; grid-template-columns: 70px 1fr 60px 70px 80px;
-  gap: 6px; padding: 8px 10px; background: var(--azul);
-  color: white; border-radius: 8px 8px 0 0;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
-.pedido-row {
-  display: grid; grid-template-columns: 70px 1fr 60px 70px 80px;
-  gap: 6px; padding: 8px 10px; border-bottom: 1px solid var(--gris-light);
-  background: white; align-items: center; transition: background 0.15s;
-}
-.pedido-row:hover { background: #f8faff; }
-.pedido-row:last-child { border-radius: 0 0 8px 8px; border-bottom: none; }
-.prod-row-code { font-size: 11px; font-weight: 700; color: var(--gris); }
-.prod-row-name { font-size: 13px; font-weight: 600; color: var(--azul); line-height: 1.2; }
-.prod-row-um { font-size: 11px; color: var(--naranja); font-weight: 700; text-align: center; }
-.qty-input {
-  width: 100%; text-align: center; padding: 6px 4px; border: 2px solid var(--gris-light);
-  border-radius: 6px; font-size: 14px; font-weight: 700; color: var(--azul);
-  font-family: 'Barlow', sans-serif;
-}
-.qty-input:focus { outline: none; border-color: var(--naranja); }
-.row-actions { display: flex; gap: 4px; justify-content: center; }
-.btn-del {
-  background: #fee2e2; color: var(--rojo); border: none; border-radius: 6px;
-  width: 28px; height: 28px; cursor: pointer; font-size: 14px;
-  display: flex; align-items: center; justify-content: center;
-}
-.btn-del:hover { background: var(--rojo); color: white; }
-.btn-edit-row {
-  background: #dbeafe; color: var(--azul-light); border: none; border-radius: 6px;
-  width: 28px; height: 28px; cursor: pointer; font-size: 13px;
-  display: flex; align-items: center; justify-content: center;
-}
-.btn-edit-row:hover { background: var(--azul-light); color: white; }
+.pedido-header, .pedido-row { display: grid; grid-template-columns: 70px 1fr 60px 70px 80px; gap: 6px; padding: 8px 10px; align-items: center; }
+.pedido-header { background: var(--azul); color: white; border-radius: 8px 8px 0 0; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+.pedido-row { background: white; border-bottom: 1px solid var(--gris-light); }
+.qty-input { width: 100%; text-align: center; padding: 6px 4px; border: 2px solid var(--gris-light); border-radius: 6px; font-weight: 700; }
 
-.pedido-empty {
-  text-align: center; padding: 40px 20px; color: var(--gris);
-  background: white; border-radius: 8px; border: 2px dashed var(--gris-light);
-}
-.pedido-empty .empty-icon { font-size: 40px; margin-bottom: 8px; }
-
-/* RESUMEN */
-.resumen-bar {
-  background: var(--azul); color: white; border-radius: 10px; padding: 12px 16px;
-  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
-}
-.resumen-count { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; }
-.resumen-label { font-size: 11px; opacity: 0.7; }
-
-/* BOTONES ACCIÓN */
-.actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-.btn-action {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 13px 10px; border-radius: 10px; border: none; cursor: pointer;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s;
-}
-.btn-action:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-.btn-excel { background: #166534; color: white; }
+.btn-action { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 10px; border-radius: 10px; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; transition: 0.2s; }
 .btn-whatsapp { background: #16a34a; color: white; grid-column: 1 / -1; padding: 16px; font-size: 17px; }
-.btn-clear { background: #fee2e2; color: var(--rojo); }
 
-/* MODAL */
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
-  display: flex; align-items: center; justify-content: center; padding: 16px;
-  backdrop-filter: blur(4px);
-}
-.modal {
-  background: white; border-radius: 16px; width: 100%; max-width: 380px;
-  box-shadow: var(--shadow-lg); overflow: hidden;
-}
-.modal-header {
-  background: var(--azul); padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.modal-header h3 { color: white; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; }
-.modal-close { background: rgba(255,255,255,0.2); border: none; color: white; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; font-size: 16px; }
-.modal-body { padding: 20px; }
-.modal-footer { padding: 14px 20px; border-top: 1px solid var(--gris-light); display: flex; gap: 10px; }
-.btn-primary {
-  flex: 1; background: var(--naranja); color: white; border: none; border-radius: 8px;
-  padding: 11px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
-  font-weight: 700; cursor: pointer; text-transform: uppercase;
-}
-.btn-secondary {
-  background: var(--gris-light); color: var(--azul); border: none; border-radius: 8px;
-  padding: 11px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
-  font-weight: 700; cursor: pointer;
-}
-
-.tab-badge {
-  background: var(--naranja); color: white; border-radius: 10px;
-  padding: 1px 6px; font-size: 10px; font-weight: 700; margin-left: 4px;
-}
-.toast {
-  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-  background: var(--azul); color: white; padding: 12px 20px; border-radius: 10px;
-  font-size: 14px; font-weight: 600; box-shadow: var(--shadow-lg);
-  z-index: 300; transition: opacity 0.3s; opacity: 0; pointer-events: none;
-}
+.tab-badge { background: var(--naranja); color: white; border-radius: 10px; padding: 1px 6px; font-size: 10px; font-weight: 700; margin-left: 4px; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--azul); color: white; padding: 12px 20px; border-radius: 10px; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 300; }
 .toast.show { opacity: 1; }
-.footer {
-  background: var(--azul); color: rgba(255,255,255,0.5);
-  text-align: center; padding: 12px 16px; font-size: 11px; margin-top: 30px;
-}
 .hidden { display: none !important; }
-.clientes-dropdown {
-  position: absolute; top: 100%; left: 0; right: 0; background: white;
-  border: 2px solid var(--azul-light); border-top: none; border-radius: 0 0 10px 10px;
-  max-height: 180px; overflow-y: auto; z-index: 50; box-shadow: var(--shadow-lg);
-}
-.cliente-item {
-  padding: 10px 14px; cursor: pointer; border-bottom: 1px solid var(--gris-light);
-  display: flex; align-items: center; gap: 8px; transition: background 0.15s;
-}
-.clientes-wrap { position: relative; }
+.footer { background: var(--azul); color: rgba(255,255,255,0.5); text-align: center; padding: 20px; font-size: 11px; margin-top: 30px; }
 </style>
 </head>
 <body>
@@ -264,9 +125,7 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
         <div class="header-sub">Portal de Pedidos</div>
       </div>
     </div>
-    <button class="whatsapp-config-btn" onclick="openWaConfig()">
-      📱 WhatsApp
-    </button>
+    <button class="whatsapp-config-btn" onclick="openWaConfig()">📱 WhatsApp</button>
   </div>
   <div class="header-tabs">
     <button class="tab-btn active" onclick="showTab('tab-cliente')" id="btn-tab-cliente">👤 Cliente</button>
@@ -282,19 +141,15 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
     <div class="form-grid">
       <div class="form-group full">
         <label>Nombre / Empresa *</label>
-        <div class="clientes-wrap">
-          <input type="text" id="cli-nombre" placeholder="Ej: Supermercado La 14" autocomplete="off"
-            oninput="buscarClientesGuardados(this.value)" />
-          <div class="clientes-dropdown" id="clientes-dropdown" style="display:none"></div>
-        </div>
-      </div>
-      <div class="form-group full">
-        <label>Dirección</label>
-        <input type="text" id="cli-direccion" />
+        <input type="text" id="cli-nombre" placeholder="Ej: Supermercado La 14" oninput="saveCliente()">
       </div>
       <div class="form-group">
         <label>Celular</label>
-        <input type="tel" id="cli-celular" />
+        <input type="tel" id="cli-celular" oninput="saveCliente()">
+      </div>
+      <div class="form-group full">
+        <label>Dirección</label>
+        <input type="text" id="cli-direccion" oninput="saveCliente()">
       </div>
     </div>
   </div>
@@ -303,9 +158,9 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
 
 <div class="section" id="tab-catalogo">
   <div class="card">
-    <div class="card-title">🔍 Buscar Producto</div>
+    <div class="card-title">🔍 Buscador</div>
     <div class="search-box-wrap">
-      <input type="text" id="search-prod" placeholder="Buscar..." oninput="searchProducts(this.value)">
+      <input type="text" id="search-prod" placeholder="Escribe producto o código..." oninput="searchProducts(this.value)">
       <div class="autocomplete-list" id="autocomplete-list" style="display:none"></div>
     </div>
     <div id="stat-total" style="font-size:12px; color:var(--gris); text-align:center;">Cargando...</div>
@@ -318,37 +173,26 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
       <div>Código</div><div>Producto</div><div>U/M</div><div>Cant.</div><div>Acc.</div>
     </div>
     <div id="pedido-list"></div>
-    <div id="pedido-empty" class="pedido-empty">El pedido está vacío</div>
+    <div id="pedido-empty" style="text-align:center; padding:40px; color:var(--gris);">Tu pedido está vacío</div>
   </div>
 </div>
 
 <div class="section" id="tab-acciones">
   <div class="card">
     <div class="card-title">⚡ Acciones</div>
-    <button class="btn-action btn-whatsapp" onclick="sendWhatsApp()">📱 Enviar WhatsApp</button>
-    <button class="btn-action btn-excel" style="width:100%; margin-top:10px;" onclick="exportExcel()">📊 Exportar Excel</button>
-    <button class="btn-action btn-clear" style="width:100%; margin-top:40px;" onclick="clearAll()">🔄 Nuevo Pedido</button>
+    <button class="btn-action btn-whatsapp" onclick="sendWhatsApp()">🚀 Enviar por WhatsApp</button>
+    <button class="btn-action" style="background:#166534; color:white; margin-top:10px; width:100%" onclick="exportExcel()">📊 Guardar Excel</button>
+    <button class="btn-action" style="background:var(--rojo); color:white; margin-top:40px; width:100%" onclick="clearAll()">🔄 Borrar todo y nuevo</button>
   </div>
 </div>
 
 <div class="modal-overlay hidden" id="modal-qty">
-  <div class="modal">
-    <div class="modal-header"><h3>🛒 Cantidad</h3></div>
-    <div class="modal-body">
-      <p id="modal-qty-name" style="font-weight:700; margin-bottom:10px;"></p>
-      <input type="number" id="modal-qty-input" value="1" min="1" style="width:100%; font-size:24px; text-align:center;">
-      <button class="btn-action btn-primary" style="width:100%; margin-top:15px;" onclick="confirmAdd()">Agregar</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay hidden" id="modal-wa">
     <div class="modal">
-      <div class="modal-header"><h3>Configuración</h3></div>
-      <div class="modal-body">
-        <label>Celular Vendedor:</label>
-        <input type="tel" id="wa-number" style="width:100%; padding:10px;">
-        <button class="btn-action btn-primary" style="width:100%; margin-top:10px;" onclick="saveWaNumber()">Guardar</button>
+      <div class="modal-header" style="background:var(--azul); color:white; padding:15px;"><h3>Cantidad</h3></div>
+      <div class="modal-body" style="padding:20px;">
+          <p id="modal-qty-name" style="font-weight:700; margin-bottom:10px;"></p>
+          <input type="number" id="modal-qty-input" value="1" min="1" style="width:100%; font-size:24px; text-align:center; border:2px solid var(--naranja);">
+          <button class="btn-action btn-primary" style="width:100%; margin-top:15px;" onclick="confirmAdd()">Agregar</button>
       </div>
     </div>
 </div>
@@ -357,21 +201,24 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--az
 
 <div class="footer">
   <strong>VIBRAS POSITIVAS HM</strong><br>
-  © 2026 Todos los derechos reservados
+  © 2026 Derechos Reservados
 </div>
 
 <script>
-// REGISTRO DE SERVICE WORKER
+// --- SERVICE WORKER ---
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').then(reg => {
-      console.log('SW registrado', reg);
-    }).catch(err => console.log('Error SW', err));
+    navigator.serviceWorker.register('sw.js').then(reg => console.log('PWA Lista')).catch(err => console.log('Error SW', err));
   });
 }
 
-// LOGICA APP
-const CATALOGO_BASE = [{"codigo":"19566","nombre":"1 BRINKY CHOCO+1 PINT.LENG+1 LIMON*10 P.","unidad":"PREPA"},{"codigo":"19445","nombre":"1 CAJA NOS INVI CLASI MULTIE 24*10+5 MUT","unidad":"COMBO"},{"codigo":"16026","nombre":"ARROZ SUPERARROZ 10BOL*10LBS","unidad":"BULTO"},{"codigo":"16023","nombre":"ARROZ SUPERARROZ 25LB*500G","unidad":"PACA"},{"codigo":"18177","nombre":"ARIEL REGULAR 10*1500G","unidad":"UND"}]; // Aquí pegas tu lista completa de 1700
+// --- CATALOGO (IMPORTANTE: Pega aquí tus 1700 items) ---
+const CATALOGO_BASE = [
+    {"codigo":"16026","nombre":"ARROZ SUPERARROZ 10BOL*10LBS","unidad":"BULTO"},
+    {"codigo":"16023","nombre":"ARROZ SUPERARROZ 25LB*500G","unidad":"PACA"},
+    {"codigo":"19501","nombre":"ACEITE MI CALDERITO 3000ML","unidad":"CJA"}
+    // ... agrega el resto aqui
+];
 
 let pedido = JSON.parse(localStorage.getItem('distrileco_pedido')) || [];
 let currentItem = null;
@@ -388,28 +235,30 @@ function searchProducts(q) {
   const list = document.getElementById('autocomplete-list');
   if (q.length < 2) { list.style.display = 'none'; return; }
   const res = CATALOGO_BASE.filter(p => p.nombre.toLowerCase().includes(q.toLowerCase()) || p.codigo.includes(q)).slice(0, 10);
-  list.innerHTML = res.map(p => `<div class="autocomplete-item" onclick="openQty('${p.codigo}','${p.nombre.replace(/'/g,"")}','${p.unidad}')">
-    <div class="prod-name"><strong>${p.codigo}</strong> - ${p.nombre}</div>
-  </div>`).join('');
+  list.innerHTML = res.map(p => `
+    <div class="autocomplete-item" onclick="openQty('${p.codigo}','${p.nombre.replace(/'/g,"")}','${p.unidad}')">
+      <strong>${p.codigo}</strong> - ${p.nombre}
+    </div>`).join('');
   list.style.display = 'block';
 }
 
 function openQty(codigo, nombre, unidad) {
-  currentItem = { codigo, nombre, unidad };
-  document.getElementById('modal-qty-name').textContent = nombre;
-  document.getElementById('autocomplete-list').style.display = 'none';
-  document.getElementById('modal-qty').classList.remove('hidden');
+    currentItem = { codigo, nombre, unidad };
+    document.getElementById('modal-qty-name').textContent = nombre;
+    document.getElementById('autocomplete-list').style.display = 'none';
+    document.getElementById('modal-qty').classList.remove('hidden');
 }
 
 function confirmAdd() {
-  const cant = parseInt(document.getElementById('modal-qty-input').value);
-  const existing = pedido.find(p => p.codigo === currentItem.codigo);
-  if (existing) existing.cantidad += cant;
-  else pedido.push({ ...currentItem, cantidad: cant });
-  localStorage.setItem('distrileco_pedido', JSON.stringify(pedido));
-  document.getElementById('modal-qty').classList.add('hidden');
-  updateBadge();
-  toast("Añadido");
+    const qty = parseInt(document.getElementById('modal-qty-input').value);
+    const exist = pedido.find(p => p.codigo === currentItem.codigo);
+    if(exist) exist.cantidad += qty;
+    else pedido.push({...currentItem, cantidad: qty});
+    savePedido();
+    document.getElementById('modal-qty').classList.add('hidden');
+    document.getElementById('search-prod').value = '';
+    updateBadge();
+    toast("Agregado");
 }
 
 function renderPedido() {
@@ -419,18 +268,38 @@ function renderPedido() {
   empty.style.display = 'none';
   list.innerHTML = pedido.map((p, i) => `
     <div class="pedido-row">
-      <div>${p.codigo}</div>
-      <div style="font-size:12px;">${p.nombre}</div>
-      <div>${p.unidad}</div>
-      <input type="number" class="qty-input" value="${p.cantidad}" onchange="pedido[${i}].cantidad=parseInt(this.value); localStorage.setItem('distrileco_pedido', JSON.stringify(pedido))">
-      <button onclick="pedido.splice(${i},1); renderPedido(); updateBadge();" style="color:red; background:none; border:none;">X</button>
+      <div style="font-size:10px">${p.codigo}</div>
+      <div style="font-size:12px; font-weight:600">${p.nombre}</div>
+      <div style="font-size:11px">${p.unidad}</div>
+      <input type="number" class="qty-input" value="${p.cantidad}" onchange="updateQty(${i}, this.value)">
+      <button onclick="delItem(${i})" style="color:red; background:none; border:none; font-weight:bold;">X</button>
     </div>`).join('');
 }
 
-function updateBadge() {
-  const b = document.getElementById('badge-count');
-  b.style.display = pedido.length ? 'inline' : 'none';
-  b.textContent = pedido.length;
+function updateQty(i, v) { pedido[i].cantidad = parseInt(v); savePedido(); }
+function delItem(i) { pedido.splice(i, 1); savePedido(); renderPedido(); updateBadge(); }
+function savePedido() { localStorage.setItem('distrileco_pedido', JSON.stringify(pedido)); }
+function updateBadge() { 
+    const b = document.getElementById('badge-count');
+    b.style.display = pedido.length ? 'inline' : 'none';
+    b.textContent = pedido.length;
+}
+
+function saveCliente() {
+    const c = {
+        nom: document.getElementById('cli-nombre').value,
+        cel: document.getElementById('cli-celular').value,
+        dir: document.getElementById('cli-direccion').value
+    };
+    localStorage.setItem('distrileco_cli', JSON.stringify(c));
+}
+
+function sendWhatsApp() {
+  const c = JSON.parse(localStorage.getItem('distrileco_cli')) || {};
+  if (!pedido.length) { alert("Pedido vacío"); return; }
+  let msg = `🏪 *PEDIDO DISTRILECO*\n👤 *Cliente:* ${c.nom || ''}\n📱 *Cel:* ${c.cel || ''}\n\n`;
+  pedido.forEach(p => msg += `• ${p.nombre} x ${p.cantidad} ${p.unidad}\n`);
+  window.open(`https://wa.me/573117700431?text=${encodeURIComponent(msg)}`);
 }
 
 function toast(m) {
@@ -439,24 +308,16 @@ function toast(m) {
   setTimeout(() => t.className = 'toast', 2000);
 }
 
-function openWaConfig() { document.getElementById('modal-wa').classList.remove('hidden'); }
-function saveWaNumber() {
-    localStorage.setItem('distrileco_wa', document.getElementById('wa-number').value);
-    document.getElementById('modal-wa').classList.add('hidden');
-}
-
-function sendWhatsApp() {
-  const wa = localStorage.getItem('distrileco_wa') || '573117700431';
-  const cli = document.getElementById('cli-nombre').value;
-  let msg = `🏪 *PEDIDO DISTRILECO*\n👤 *Cliente:* ${cli}\n\n`;
-  pedido.forEach(p => msg += `• ${p.nombre} x ${p.cantidad} ${p.unidad}\n`);
-  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`);
-}
-
-function clearAll() { if(confirm("¿Borrar todo?")) { pedido=[]; localStorage.removeItem('distrileco_pedido'); location.reload(); } }
+function clearAll() { if(confirm("¿Limpiar todo?")) { pedido=[]; savePedido(); localStorage.removeItem('distrileco_cli'); location.reload(); } }
 
 window.onload = () => {
-    document.getElementById('stat-total').textContent = CATALOGO_BASE.length + " productos";
+    const c = JSON.parse(localStorage.getItem('distrileco_cli'));
+    if(c) {
+        document.getElementById('cli-nombre').value = c.nom || '';
+        document.getElementById('cli-celular').value = c.cel || '';
+        document.getElementById('cli-direccion').value = c.dir || '';
+    }
+    document.getElementById('stat-total').textContent = CATALOGO_BASE.length + " productos en lista";
     updateBadge();
 };
 </script>
